@@ -13,3 +13,7 @@ jobs:
           who-to-greet: shukla
       - name: time to greet
         run: echo "${{steps.greet.outputs.time}}"    
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: list files
+        run: ls        
