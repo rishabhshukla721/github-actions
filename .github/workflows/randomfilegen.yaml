@@ -3,22 +3,22 @@ name: Random File Generator
 on: [push]
 
 jobs:
-  name: random-file-gen
-  runs-on: ubuntu-latest
-  steps:
-    - name: Push a random number file
-      run: |
-        pwd
-        ls -a
-        git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
-        git config --global user.email "mybot@mybot.com"
-        git config --global user.name "mybot"
-        git fetch
-        git checkout master
-        git branch --set-upstream-to=origin/master
-        git pull
-        ls -a
-        echo $RANDOM >> random.txt
-        git add -A
-        git commit -m "random file added"
-        git push
+  random-file-gen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push a random number file
+        run: |
+          pwd
+          ls -a
+          git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "mybot@mybot.com"
+          git config --global user.name "mybot"
+          git fetch
+          git checkout master
+          git branch --set-upstream-to=origin/master
+          git pull
+          ls -a
+          echo $RANDOM >> random.txt
+          git add -A
+          git commit -m "random file added"
+          git push
